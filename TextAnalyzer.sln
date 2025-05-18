@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStoreService.Tests", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileAnalysisService.Tests", "FileAnalysisService.Tests\FileAnalysisService.Tests.csproj", "{4F5E5D19-F2C3-47AC-BFCB-3507DF4E6312}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway.Tests", "ApiGateway.Tests\ApiGateway.Tests.csproj", "{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,18 @@ Global
 		{4F5E5D19-F2C3-47AC-BFCB-3507DF4E6312}.Release|x64.Build.0 = Release|Any CPU
 		{4F5E5D19-F2C3-47AC-BFCB-3507DF4E6312}.Release|x86.ActiveCfg = Release|Any CPU
 		{4F5E5D19-F2C3-47AC-BFCB-3507DF4E6312}.Release|x86.Build.0 = Release|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Debug|x64.Build.0 = Debug|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Debug|x86.Build.0 = Debug|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Release|x64.ActiveCfg = Release|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Release|x64.Build.0 = Release|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Release|x86.ActiveCfg = Release|Any CPU
+		{5CCA057B-17D0-4185-9A0E-0AA907B56B7C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
