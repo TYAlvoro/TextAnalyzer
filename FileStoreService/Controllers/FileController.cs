@@ -10,7 +10,8 @@ public class FileController : ControllerBase
     private static readonly string StoragePath = Path.Combine(AppContext.BaseDirectory, "Files");
 
     [HttpPost]
-    public async Task<IActionResult> Upload([FromForm] IFormFile? file)
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> Upload(IFormFile? file)
     {
         if (file is null || file.Length == 0)
             return BadRequest("No file provided.");

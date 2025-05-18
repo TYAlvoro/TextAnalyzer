@@ -26,7 +26,6 @@ namespace FileStoreService.Tests.Controllers
         public async Task Upload_ReturnsOk_WithValidFile()
         {
             // Arrange
-            var fileMock = new Mock<IFormFile>();
             const string content = "test file content";
             const string fileName = "test.txt";
             var ms = new MemoryStream();
@@ -34,9 +33,14 @@ namespace FileStoreService.Tests.Controllers
             await writer.WriteAsync(content);
             await writer.FlushAsync();
             ms.Position = 0;
+
+            var fileMock = new Mock<IFormFile>();
             fileMock.Setup(f => f.OpenReadStream()).Returns(ms);
             fileMock.Setup(f => f.FileName).Returns(fileName);
             fileMock.Setup(f => f.Length).Returns(ms.Length);
+            fileMock
+                .Setup(f => f.CopyToAsync(It.IsAny<Stream>(), It.IsAny<CancellationToken>()))
+                .Returns((Stream target, CancellationToken ct) => ms.CopyToAsync(target, ct));
 
             var controller = new FileController();
 
@@ -46,13 +50,16 @@ namespace FileStoreService.Tests.Controllers
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
             var response = Assert.IsType<FileUploadResponse>(okResult.Value);
-            Assert.False(response.FileId == Guid.Empty);
+            Assert.NotEqual(Guid.Empty, response.FileId);
             Assert.Equal(fileName, response.FileName);
 
+            // Проверяем, что на диске лежит наш контент
             var filePath = Path.Combine(AppContext.BaseDirectory, "Files", $"{response.FileId}.txt");
             Assert.True(File.Exists(filePath));
             var fileContent = await File.ReadAllTextAsync(filePath);
             Assert.Equal(content, fileContent);
+
+            // Чистим
             File.Delete(filePath);
         }
 

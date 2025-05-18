@@ -8,7 +8,8 @@ namespace ApiGateway.Controllers;
 public class GatewayController(IHttpClientFactory httpFactory) : ControllerBase
 {
     [HttpPost("files")]
-    public async Task<IActionResult> UploadFile([FromForm] IFormFile file)
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> UploadFile(IFormFile file)
     {
         var client = httpFactory.CreateClient("FileStore");
         var content = new MultipartFormDataContent();
