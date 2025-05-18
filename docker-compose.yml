@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  filestore:
+    build: ./FileStoreService
+    ports:
+      - "8080:80"
+    volumes:
+      - filestore_data:/app/Files
+
+  analysis:
+    build: ./FileAnalysisService
+    ports:
+      - "8081:80"
+    volumes:
+      - filestore_data:/app/Files
+    depends_on:
+      - filestore
+
+  gateway:
+    build: ./ApiGateway
+    ports:
+      - "5000:80"
+    depends_on:
+      - filestore
+      - analysis
+
+volumes:
+  filestore_data:
