@@ -62,7 +62,7 @@ TextAnalyzer/
 │   └── ...          # ASP.NET Core Web API (порт 8081)
 ├── Shared/          # Общие DTO: FileUploadResponse, AnalysisRequest, AnalysisResult
 ├── docker-compose.yml
-├── README.md        # этот файл
+├── README.md
 └── TextAnalyzer.sln
 ```
 
